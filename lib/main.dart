@@ -9,8 +9,8 @@ void main() => runApp(App());
 class App extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp( 
+      //隐藏顶部出现的debug标识
       debugShowCheckedModeBanner: false,
       home: Home(),
       theme: ThemeData(
@@ -22,6 +22,7 @@ class App extends StatelessWidget{
 
 
 class Home extends StatelessWidget{
+  //item数据绑定
   Widget _listItemBuilder(BuildContext context,int index){
     return Container(
       color:Colors.white,
@@ -49,15 +50,17 @@ class Home extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red[100],
-        appBar: AppBar(
-          title: Text('Hello Flutter'),
-          elevation: 35.0, 
-        ),
-        body: ListView.builder(
-          itemCount: posts.length,
-          itemBuilder: _listItemBuilder,
-        )
-      );
+      //类似Android的ActionBar
+      appBar: AppBar(
+        title: Text('Hello Flutter'),
+        elevation: 35.0, 
+      ),
+      //主体内容
+      body: ListView.builder(
+        itemCount: posts.length,
+        itemBuilder: _listItemBuilder,
+      )
+    );
   }
 }
 
