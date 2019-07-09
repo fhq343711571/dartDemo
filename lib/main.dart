@@ -10,11 +10,15 @@ class App extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       home: Home(),
       theme: ThemeData(
-        primarySwatch: Colors.green
+        primarySwatch: Colors.yellow,
+         //点击背景色设置
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+        splashColor: Colors.yellow
       ),
-    );
+    ); 
   }
 }
+
 
 /*
  * tab
@@ -29,18 +33,20 @@ class Home extends StatelessWidget{
             //类似Android的ActionBar
             appBar: AppBar(
               //title左边的icon
-              leading: IconButton(
-                icon: Icon(Icons.menu),
-                tooltip: 'Navigation',
-                onPressed: () => debugPrint('Navigation button is pressed'),
-              ),
-              title: Text('Hello'),
+              // leading: IconButton(
+              //   icon: Icon(Icons.menu),
+              //   tooltip: 'Navigation',
+              //   //点击事件
+              //   onPressed: () => debugPrint('Navigation button is pressed'),
+              // ),
+              title: Text('Tab Demo'),
               //title右边的icon
               actions: <Widget>[
                 IconButton(
-                icon: Icon(Icons.search),
-                tooltip: 'Seerch',
-                onPressed: () => debugPrint('Search button is pressed'))
+                  icon: Icon(Icons.search),
+                  tooltip: 'Seerch',
+                  onPressed: () => debugPrint('Navigation button is pressed')
+                )
               ],
               elevation: 5.0,
               bottom: TabBar(
@@ -63,41 +69,71 @@ class Home extends StatelessWidget{
                 Icon(Icons.directions_bike,size:128.0,color:Colors.black12)
               ],
             ),
+            endDrawer: Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('hello')
+                ],
+              ),
+            ),
+            //侧滑控件
+            drawer: Drawer(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    // DrawerHeader(
+                    //     child: Text("标题"),
+                    //     decoration: BoxDecoration(
+                    //       color: Colors.grey[100]
+                    //     ),
+                    // ),
+                    UserAccountsDrawerHeader(
+                      accountName: Text("张三",style:TextStyle(fontWeight:FontWeight.bold)),
+                      accountEmail: Text("mrz9011@qq.com"),
+                      currentAccountPicture: CircleAvatar(
+                        backgroundImage: NetworkImage("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3677209778,3519789803&fm=26&gp=0.jpg"),
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.yellow[400],
+                        image: DecorationImage(
+                          image: NetworkImage("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562677751400&di=e0d7fbf7192e2c439bc1edc596306b42&imgtype=0&src=http%3A%2F%2Fpic33.nipic.com%2F20130924%2F9822353_015119969000_2.jpg"),
+                          fit: BoxFit.scaleDown,
+                          colorFilter: ColorFilter.mode(
+                            Colors.yellow[400].withOpacity(0.6), 
+                            BlendMode.hardLight)
+                        )
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('Message',textAlign:TextAlign.right),
+                      //在title右边展示
+                      trailing: Icon(Icons.message,color:Colors.red,size:22),
+                      //title左右展示
+                      // leading: Icon(Icons.airplay,color:Colors.red,size:22),
+                      //点击关闭窗口
+                      onTap: () => Navigator.pop(context),
+                    ),
+                    ListTile(
+                      title: Text('favorite',textAlign:TextAlign.right),
+                      //在title右边展示
+                      trailing: Icon(Icons.favorite,color:Colors.red,size:22),
+                      onTap: () => Navigator.pop(context),
+                    ),
+                    ListTile(
+                      title: Text('settings',textAlign:TextAlign.right),
+                      //在title右边展示
+                      trailing: Icon(Icons.settings,color:Colors.red,size:22),
+                      onTap: () => Navigator.pop(context),
+                    )
+                  ],
+                ),
+            ),
         ),
     );
   }
 }
-  
 
 
-// /*
-//  * title AppBAr
-//  */
-// class Home extends StatelessWidget{
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.red[100],
-//       //类似Android的ActionBar
-//       appBar: AppBar(
-//         //title左边的icon
-//         leading: IconButton(
-//           icon: Icon(Icons.menu),
-//           tooltip: 'Navigation',
-//           onPressed: () => debugPrint('Navigation button is pressed'),
-//         ),
-//         title: Text('Hello Flutter'),
-//         //title右边的icon
-//         actions: <Widget>[
-//           IconButton(
-//           icon: Icon(Icons.search),
-//           tooltip: 'Seerch',
-//           onPressed: () => debugPrint('Search button is pressed'))
-//         ],
-//         elevation: 35.0, 
-//       ),
-//       //主体内容
-//       body: null
-//     );
-//   }
-// }
