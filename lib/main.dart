@@ -1,6 +1,29 @@
 import 'package:flutter/material.dart';
+import './home/home_screen.dart';
+import 'constans.dart' show AppColors;
 
-void main() => runApp(App());
+
+// void main() => runApp(App());
+
+void main() => runApp(MaterialApp(
+  debugShowCheckedModeBanner: false,
+  title: "DemoWechat",
+  theme: ThemeData.light().copyWith(
+    primaryColor: Color(AppColors.AppBarColor),
+    cardColor: Color(AppColors.AppBarColor)
+  ),
+  home: HomeScreen(),
+));
+
+
+
+
+
+
+
+
+
+
 
 class App extends StatelessWidget{
   @override
@@ -56,7 +79,7 @@ class Home extends StatelessWidget{
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorWeight: 3.0,
                 tabs: <Widget>[
-                  Tab(icon: Icon(Icons.local_florist),text: '花',),
+                  Tab(icon: Icon(Icons.local_florist),text: '花'),
                   Tab(icon: Icon(Icons.change_history),text: '历史'),
                   Tab(icon: Icon(Icons.directions_bike),text: '自行车自行车',)
                 ],
@@ -103,7 +126,8 @@ class Home extends StatelessWidget{
                           fit: BoxFit.scaleDown,
                           colorFilter: ColorFilter.mode(
                             Colors.yellow[400].withOpacity(0.6), 
-                            BlendMode.hardLight)
+                            BlendMode.hardLight
+                          )
                         )
                       ),
                     ),
