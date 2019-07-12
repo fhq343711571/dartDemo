@@ -81,7 +81,7 @@ class Home extends StatelessWidget{
                 tabs: <Widget>[
                   Tab(icon: Icon(Icons.local_florist),text: '花'),
                   Tab(icon: Icon(Icons.change_history),text: '历史'),
-                  Tab(icon: Icon(Icons.directions_bike),text: '自行车自行车',)
+                  Tab(icon: Icon(Icons.directions_bike),text: '要什么自行车',)
                 ],
               ),
             ), 
@@ -114,7 +114,7 @@ class Home extends StatelessWidget{
                     //     ),
                     // ),
                     UserAccountsDrawerHeader(
-                      accountName: Text("张三",style:TextStyle(fontWeight:FontWeight.bold)),
+                      accountName: Text("海子杀手",style:TextStyle(fontWeight:FontWeight.bold)),
                       accountEmail: Text("mrz9011@qq.com"),
                       currentAccountPicture: CircleAvatar(
                         backgroundImage: NetworkImage("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3677209778,3519789803&fm=26&gp=0.jpg"),
