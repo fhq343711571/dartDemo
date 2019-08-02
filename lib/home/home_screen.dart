@@ -3,6 +3,7 @@ import 'package:flutter01/constans.dart';
 import 'package:flutter01/model/navigation.dart';
 import '../model/navigation.dart';
 import '../constans.dart';
+import 'wechat.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -21,21 +22,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _navigationViews = [
       NavigationItemView(
           title: "微信",
-          icon: IconData(0xe63b, fontFamily: Constants.IconFontFamily),
-          activeIcon: IconData(0xe63b, fontFamily: Constants.IconFontFamily)),
+          icon: IconData(0xe67c, fontFamily: Constants.IconFontFamily),
+          activeIcon: IconData(0xe67c, fontFamily: Constants.IconFontFamily)),
       NavigationItemView(
           title: "通讯录",
-          icon: IconData(0xe63b, fontFamily: Constants.IconFontFamily),
-          activeIcon: IconData(0xe63b, fontFamily: Constants.IconFontFamily)),
+          icon: IconData(0xe63a, fontFamily: Constants.IconFontFamily),
+          activeIcon: IconData(0xe63a, fontFamily: Constants.IconFontFamily)),
       NavigationItemView(
           title: "发现",
-          icon: IconData(0xe660, fontFamily: Constants.IconFontFamily),
-          activeIcon: IconData(0xe63b, fontFamily: Constants.IconFontFamily)),
+          icon: IconData(0xe746, fontFamily: Constants.IconFontFamily),
+          activeIcon: IconData(0xe746, fontFamily: Constants.IconFontFamily)),
       NavigationItemView(
           title: "我的",
           icon: IconData(0xe63b, fontFamily: Constants.IconFontFamily),
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     pages = [
-      Container(color: Colors.red),
+      wechat(),
       Container(color: Colors.blue),
       Container(color: Colors.yellow),
       Container(color: Colors.brown)
@@ -71,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final BottomNavigationBar navigationBar = BottomNavigationBar(
+      //底部导航文字变色
       fixedColor: const Color(AppColors.TabIconActive),
       items: _navigationViews.map((NavigationItemView view) {
         return view.item;
@@ -81,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           _currentIndex = index;
           _pageController.animateToPage(index,
-              duration: Duration(milliseconds: 200), curve: null);
+              duration: Duration(milliseconds: 200), curve: Curves.ease);
         });
       },
     );

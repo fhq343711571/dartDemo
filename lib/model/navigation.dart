@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 ///底部导航数据结构
-///
+
 class NavigationItemView{
   //固定对象名
   final BottomNavigationBarItem item;
@@ -14,5 +14,4 @@ class NavigationItemView{
       title: Text(title),
       backgroundColor: Colors.white
     );
-
 }
